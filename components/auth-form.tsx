@@ -18,7 +18,6 @@ export function AuthForm({ mode }: { mode: 'sign-in' | 'sign-up' }) {
   const isSignUp = mode === 'sign-up'
 
   async function handleSubmit(e: React.FormEvent) {
-    console.log('[v0] handleSubmit called')
     e.preventDefault()
     setError(null)
     setLoading(true)
