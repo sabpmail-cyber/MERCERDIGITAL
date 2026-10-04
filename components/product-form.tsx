@@ -236,10 +236,10 @@ export function ProductForm({
             )}
           </FormControl>
 
-          <RadioGroup name="status" defaultValue={product?.status ?? 'draft'}>
-            <RadioGroup.Label>Status</RadioGroup.Label>
+            <RadioGroup name="status">
+              <RadioGroup.Label>Status</RadioGroup.Label>
             <FormControl>
-              <Radio value="draft" />
+              <Radio value="draft" defaultChecked={product?.status !== 'active'} />
               <FormControl.Label>Draft — hidden from the shop</FormControl.Label>
             </FormControl>
             <FormControl>

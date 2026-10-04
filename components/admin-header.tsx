@@ -20,7 +20,7 @@ export function AdminHeader({ userEmail }: { userEmail: string }) {
         direction="horizontal"
         justify="space-between"
         align="center"
-        style={{ maxWidth: 960, margin: '0 auto', padding: '16px 24px' }}
+        style={{ maxWidth: 960, margin: '0 auto', padding: '12px 16px' }}
       >
         <Link href="/admin" style={{ color: 'var(--fgColor-default)', textDecoration: 'none' }}>
           <Text weight="semibold">
@@ -30,15 +30,25 @@ export function AdminHeader({ userEmail }: { userEmail: string }) {
             </Text>
           </Text>
         </Link>
-        <Stack direction="horizontal" gap="normal" align="center">
-          <Text size="small" style={{ color: 'var(--fgColor-muted)' }}>
+        <Stack direction="horizontal" gap="condensed" align="center">
+          <Text
+            size="small"
+            className="hide-below-md"
+            style={{ color: 'var(--fgColor-muted)' }}
+          >
             {userEmail}
           </Text>
-          <Button as="a" href="/" size="small" variant="invisible" leadingVisual={HomeIcon}>
-            View store
+          <Button
+            as="a"
+            href="/"
+            variant="invisible"
+            leadingVisual={HomeIcon}
+            aria-label="View store"
+          >
+            <span className="hide-below-sm">View store</span>
           </Button>
           <Button
-            size="small"
+            aria-label="Sign out"
             leadingVisual={SignOutIcon}
             onClick={async () => {
               await authClient.signOut()
@@ -46,7 +56,7 @@ export function AdminHeader({ userEmail }: { userEmail: string }) {
               router.refresh()
             }}
           >
-            Sign out
+            <span className="hide-below-sm">Sign out</span>
           </Button>
         </Stack>
       </Stack>
